@@ -2,13 +2,15 @@ import mysql.connector
 from mysql.connector import Error
 
 def test_database_connection(host, user, password, database):
+    connection = None  # Initialisation de la variable connection
+
     try:
         # Establish a connection to the database
         connection = mysql.connector.connect(
-            host='45.41.235.162',
-            user='safeplac_ngadmin',
-            password='Defs@2012.com',
-            database='safeplac_ngdelivery'
+            host=host,
+            user=user,
+            password=password,
+            database=database
         )
 
         if connection.is_connected():
@@ -29,15 +31,15 @@ def test_database_connection(host, user, password, database):
 
     finally:
         # Close the database connection
-        if connection.is_connected():
+        if connection is not None and connection.is_connected():
             cursor.close()
             connection.close()
             print("Database connection closed.")
 
 # Use the database configuration values
-host='45.41.235.162'
-user='safeplac_ngadmin'
-password='Defs@2012.com'
-database='safeplac_ngdelivery'
+host='localhost'
+user='root'
+password=''
+database='ngdelivery'
 
 test_database_connection(host, user, password, database)
