@@ -26,7 +26,7 @@ logging.basicConfig(filename='app.log', level=logging.ERROR, format='%(asctime)s
 
 # Token API Telegram
 config = configparser.ConfigParser()
-config.read('C:config.ini')
+config.read('config.ini')
 #CINETPAY_API_KEY = config['API_KEYS']['CINETPAY_API_KEY']
 DATABASE_HOST = config['DATABASE']['HOST']
 DATABASE_USER = config['DATABASE']['USER']
