@@ -1702,9 +1702,9 @@ def get_cart_content(user_id):
         return {}
 
 # Ajoutez une fonction de rafraîchissement des catégoriesDIRp
-def refresh_categories():
-    global categories  # Assurez-vous que la variable est globale pour pouvoir la mettre à jour
-    categories = get_categories()
+#def refresh_categories():
+    #global categories  # Assurez-vous que la variable est globale pour pouvoir la mettre à jour
+    #categories = get_categories()
 
 # Modifiez votre gestionnaire de messages pour utiliser la fonction de rafraîchissement
 @bot.message_handler(func=lambda message: message.text.startswith("Acheter"))
@@ -1715,7 +1715,7 @@ def handle_acheter(message):
             return 
 
         # Rafraîchit les catégories de produits depuis la base de données
-        refresh_categories()
+        categories = get_categories()
 
         # Crée les boutons de catégories
         markup = types.ReplyKeyboardMarkup(row_width=2)
